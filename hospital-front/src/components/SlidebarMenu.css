@@ -1,0 +1,24 @@
+/* src/components/SidebarMenu.css */
+
+:root {
+    --sidebar-bg: #1a1a2e;
+    --text-color: #e0e0e0;
+    --hover-bg: #16213e;
+    --hover-color: #ffffff;
+    --active-bg: #0f3460;
+    --active-color: #ffffff;
+  }
+  
+  /* Sidebar general style */
+  .ps-sidebar-root {
+    height: 100vh;
+  }
+  
+  /* MenuItem style overrides if needed */
+  .ps-menu-button {
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+  
