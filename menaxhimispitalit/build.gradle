@@ -22,7 +22,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation 'com.mysql:mysql-connector-j:9.2.0'
+	//implementation 'com.mysql:mysql-connector-j:9.2.0'
+
+	implementation 'org.postgresql:postgresql:42.7.5'
 }
 
 tasks.named('test') {

@@ -28,9 +28,22 @@ const SidebarMenu = () => {
           <MenuItem>Pie charts</MenuItem>
           <MenuItem>Line charts</MenuItem>
         </SubMenu>
+        <SubMenu label="Pacinetet">
+          <MenuItem>Listo Pacinetet</MenuItem>
+          <MenuItem>Krijo Pacinetet</MenuItem>
+        </SubMenu>
+        <SubMenu label="Mjeket">
+          <MenuItem>Listo Mjeket</MenuItem>
+          <MenuItem>Krijo Mjeket</MenuItem>
+        </SubMenu>
+        <SubMenu label="Qytetet">
+        <MenuItem component={<Link to="/qytetetlist" />}>Listo Qytetet</MenuItem>
+          <MenuItem>Krijo Qytetet</MenuItem>
+        </SubMenu>
         <MenuItem component={<Link to="/documentation" />}>Documentation</MenuItem>
         <MenuItem component={<Link to="/calendar" />}>Calendar</MenuItem>
         <MenuItem component={<Link to="/e-commerce" />}>E-commerce</MenuItem>
+        <MenuItem component={<Link to="/qytetetlist" />}>Qytetet</MenuItem>
       </Menu>
     </Sidebar>
   );
