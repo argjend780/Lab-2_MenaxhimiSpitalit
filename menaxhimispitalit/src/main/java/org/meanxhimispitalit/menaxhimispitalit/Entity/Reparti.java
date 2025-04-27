@@ -24,11 +24,17 @@ public class Reparti {
     @JoinColumn(name = "spitalid", nullable = false) 
     private Spitali spitali; 
     
-   /*  @JsonIgnore
+     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "reparti")
     private List<Mjeket> mjeketliste;
-    */
+    
    
+    public List<Mjeket> getMjeketliste() {
+        return mjeketliste;
+    }
+     public void setMjeketliste(List<Mjeket> mjeketliste) {
+         this.mjeketliste = mjeketliste;
+     }
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "reparti")
     private List<Pacienti> pacientiliste;
     
