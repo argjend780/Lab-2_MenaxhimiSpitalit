@@ -1,24 +1,57 @@
-/* src/components/SidebarMenu.css */
-
 :root {
-    --sidebar-bg: #1a1a2e;
-    --text-color: #e0e0e0;
-    --hover-bg: #16213e;
-    --hover-color: #ffffff;
-    --active-bg: #0f3460;
-    --active-color: #ffffff;
-  }
-  
-  /* Sidebar general style */
-  .ps-sidebar-root {
-    height: 100vh;
-  }
-  
-  /* MenuItem style overrides if needed */
-  .ps-menu-button {
-    transition: all 0.3s ease;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 12px 20px;
-  }
-  
+  --sidebar-bg: #1a1a2e;
+  --text-color: #e0e0e0;
+  --hover-bg: #16213e;
+  --hover-color: #ffffff;
+  --active-bg: #0f3460;
+  --active-color: #ffffff;
+}
+
+/* Sidebar container */
+.ps-sidebar-root {
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #2e2e3a;
+  overflow: hidden;
+}
+
+/* General Menu Item styling */
+.ps-menu-button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 12px 20px;
+  color: var(--text-color);
+  border-radius: 8px;
+  margin: 4px 8px;
+}
+
+/* Hover effects for menu items */
+.ps-menu-button:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-color);
+}
+
+/* Active menu item */
+.ps-menu-button.ps-active {
+  background-color: var(--active-bg);
+  color: var(--active-color);
+  font-weight: 600;
+}
+
+/* SubMenu styling */
+.ps-submenu-content {
+  background-color: #111827; /* pak më e errët për submenu */
+}
+
+/* Nice scroll for big sidebar */
+.ps-sidebar-root::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ps-sidebar-root::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
