@@ -27,11 +27,12 @@ public class Reparti {
    /*  @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "reparti")
     private List<Mjeket> mjeketliste;
-
-    @JsonIgnore
+    */
+   
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "reparti")
     private List<Pacienti> pacientiliste;
-    @JsonIgnore
+    
+    /*@JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "reparti")
     private List<Infermieret> infermieriliste;*/
 
@@ -57,5 +58,11 @@ public class Reparti {
     }
     public void setSpitali(Spitali spitali) {
         this.spitali = spitali;
+    }
+    public List<Pacienti> getPacientiliste() {
+        return pacientiliste;
+    }
+    public void setPacientiliste(List<Pacienti> pacientiliste) {
+        this.pacientiliste = pacientiliste;
     }
 }
