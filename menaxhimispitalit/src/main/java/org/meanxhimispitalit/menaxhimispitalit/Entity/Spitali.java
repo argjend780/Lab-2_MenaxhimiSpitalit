@@ -3,6 +3,7 @@ package org.meanxhimispitalit.menaxhimispitalit.Entity;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -41,10 +42,10 @@ public class Spitali {
     @JoinColumn(name = "qyteti_id") 
     private Qyteti qyteti;
     
-    @JsonIgnore 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "spitali") 
-    private List<Reparti> repartet;  
-    
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "spitali")
+    private List<Reparti> repartet;
+
    /* @JsonIgnore
    	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "spitali")
    	private List<Reparti> repartiiList;*/

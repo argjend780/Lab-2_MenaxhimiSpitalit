@@ -1,5 +1,6 @@
 package org.meanxhimispitalit.menaxhimispitalit.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,11 +25,14 @@ public class MjeketService {
     private final MjeketRepository mjeketrepository;
     private final RepartiRepository repartirepository;
     private final RepartiService repartiservice;
+    private final ScheduleService scheduleService;
 
-    public MjeketService(MjeketRepository mjeketrepository, RepartiRepository repartirepository, RepartiService repartiservice) {
+    public MjeketService(MjeketRepository mjeketrepository, RepartiRepository repartirepository,
+                         RepartiService repartiservice, ScheduleService scheduleService) {
         this.mjeketrepository = mjeketrepository;
         this.repartirepository = repartirepository;
         this.repartiservice = repartiservice;
+        this.scheduleService = scheduleService;
     }
    /* @Autowired
     private UserClient userClient;
@@ -48,14 +52,19 @@ public class MjeketService {
     }*/
 
     
-    public Mjeket teOrUpdateMjeket(Mjeket mjeket,Long qytetiId,Long spitaliid,Long repartiid)
-    {
-    	Reparti employee= repartiservice.getTask(qytetiId, spitaliid,repartiid);
-    	
-    	mjeket.setReparti(employee);
-    	return mjeketrepository.save(mjeket);
-    	}
-    
+    public Mjeket teOrUpdateMjeket(Mjeket mjeket, Long qytetiId, Long spitaliid, Long repartiid) {
+    Reparti employee = repartiservice.getTask(qytetiId, spitaliid, repartiid);
+    mjeket.setReparti(employee);
+
+    Mjeket savedMjek = mjeketrepository.save(mjeket);
+
+    // ✅ Gjenero orarin vetëm nëse është i ri ose nuk ka orare për ditët në vijim
+    LocalDate today = LocalDate.now();
+    LocalDate weekLater = today.plusDays(7);
+    scheduleService.generateScheduleForDoctorIfNotExists(savedMjek, today, weekLater);
+
+    return savedMjek;
+}
 
     public Mjeket findMyId(Long id) {return mjeketrepository.findById(id).orElse(null);}
    

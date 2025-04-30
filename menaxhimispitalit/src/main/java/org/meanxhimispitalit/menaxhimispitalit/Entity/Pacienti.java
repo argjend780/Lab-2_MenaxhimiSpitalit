@@ -2,8 +2,7 @@ package org.meanxhimispitalit.menaxhimispitalit.Entity;
 
 import java.util.List;
 
-
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -51,9 +50,10 @@ public class Pacienti {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pacineti")
 	private List<Alergjia> alergjiList;*/
 	
-	@ManyToOne(fetch = FetchType.EAGER) 
-	@JoinColumn(name = "departmentId", nullable = false, updatable = false)
-	private Reparti reparti;
+	@JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "reparti_id")
+    private Reparti reparti;
 	
 	/*@OneToOne(fetch = FetchType.EAGER, mappedBy = "pacienti")
 	private DosjaMejeksore dosjaMejeksore;*/

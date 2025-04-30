@@ -2,6 +2,7 @@ package org.meanxhimispitalit.menaxhimispitalit.Entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
@@ -28,6 +29,7 @@ private String email;
 @Column(name = "phoneNumber",nullable = false)
 private String phoneNumber;
 
+@JsonBackReference
 @ManyToOne(fetch = FetchType.EAGER)
 @JoinColumn(name = "departmentId", nullable = false, updatable = false)
 private Reparti reparti;
