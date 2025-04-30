@@ -31,7 +31,7 @@ const SidebarMenu = () => {
           }),
         }}
       >
-        <MenuItem component={<Link to="/" />} icon={<Home size={18} />}>
+        <MenuItem component={<Link component={Link} to="/" />} icon={<Home size={18} />}>
           Dashboard
         </MenuItem>
 
