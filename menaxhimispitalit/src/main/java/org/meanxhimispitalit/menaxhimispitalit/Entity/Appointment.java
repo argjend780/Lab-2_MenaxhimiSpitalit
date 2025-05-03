@@ -1,26 +1,25 @@
 package org.meanxhimispitalit.menaxhimispitalit.Entity;
 
+import ai.timefold.solver.core.api.domain.entity.PlanningEntity;
+import ai.timefold.solver.core.api.domain.lookup.PlanningId;
+import ai.timefold.solver.core.api.domain.variable.PlanningVariable;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Optional;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import java.util.List;
-
-import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Optional;
-import java.util.List;
 
 @Entity
+@PlanningEntity
 @Table(name = "appointment")
 public class Appointment {
+    @PlanningId
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @PlanningVariable(valueRangeProviderRefs = {"roomRange"})
+    @ManyToOne
+    private Room room;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pacienti_id", nullable = false)
@@ -50,4 +49,7 @@ public class Appointment {
 
     public LocalTime getTime() { return time; }
     public void setTime(LocalTime time) { this.time = time; }
+
+    public Room getRoom() { return room; }
+    public void setRoom(Room room) { this.room = room; }
 }
