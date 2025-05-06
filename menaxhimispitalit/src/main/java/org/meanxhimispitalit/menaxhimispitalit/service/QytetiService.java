@@ -41,4 +41,7 @@ public class QytetiService {
         String message = "Qyteti with ID " + id + " has been deleted";
         return ResponseEntity.ok().body(message);
     }
+    public Long countQyteti() {
+        return qytetiRepository.count();
+    }
 }

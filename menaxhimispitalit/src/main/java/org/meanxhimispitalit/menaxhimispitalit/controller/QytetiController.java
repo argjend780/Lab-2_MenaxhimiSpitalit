@@ -9,12 +9,16 @@ import org.meanxhimispitalit.menaxhimispitalit.service.QytetiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.Collections;
+import java.util.Map;
+
 
 import org.springframework.web.bind.annotation.*;
 
 
 
-@Controller
+@RestController
 @RequestMapping("/api/qyteti")
 @CrossOrigin
 public class QytetiController {
@@ -38,7 +42,7 @@ public class QytetiController {
 
     // Get Qyteti by id
     @GetMapping("/{id}")
-    public ResponseEntity<Qyteti> getQytetiById(@PathVariable Long id) {
+    public ResponseEntity<Qyteti> getQytetiById(@PathVariable ("id") Long id) {
         Qyteti foundQyteti = qytetiService.findById(id);
         if (foundQyteti != null) {
             return ResponseEntity.ok(foundQyteti);
@@ -48,7 +52,7 @@ public class QytetiController {
     }
    
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteQyteti(@PathVariable Long id,@RequestHeader("Authorization") String token) {
+    public ResponseEntity<?> deleteQyteti(@PathVariable ("id") Long id) {
         return qytetiService.deleteQytetiById(id);
     }
 
@@ -57,5 +61,10 @@ public class QytetiController {
     public ResponseEntity<List<Qyteti>> getAllQytetet() {
         List<Qyteti> qytetiList = qytetiService.getAllQytetet();
         return ResponseEntity.ok(qytetiList);
+    }
+    @GetMapping("/count")
+    public Map<String, Long> getCityCount() {
+    long count = qytetiService.countQyteti();
+    return Collections.singletonMap("count", count);
     }
 }
