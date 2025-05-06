@@ -1,4 +1,4 @@
-import { GET_QYTETETS,GET_QYTETI,CREATE_QYTETI,DELETE_QYTETI } from "../actions/type";
+import { GET_QYTETETS,GET_QYTETI,CREATE_QYTETI,DELETE_QYTETI,GET_QYTETI_COUNT } from "../actions/type";
 import { GET_ERRORS } from "./type";
 import axios from "axios";
 
@@ -7,20 +7,20 @@ export const createQyteti = (qytet) => async (dispatch) => {
          // Log për të verifikuar token-in
 
         const response = await axios.post(
-            "http://192.168.0.22:8081/meaxhimi-spitalit-app/api/qyteti",
+            "http://localhost:8081/api/qyteti",
             qytet
            
         );
 
         console.log('Response:', response.data);
-        alert('Qyteti u krijua me sukses!');
+        //alert('Qyteti u krijua me sukses!');
 
         dispatch({
             type: CREATE_QYTETI,
             payload: response.data,
         });
 
-        window.location.href = "/qytetiList";
+        window.location.href = "/qytetetList";
     } catch (error) {
         console.error('Error:', error.response.data);
         dispatch({
@@ -51,13 +51,7 @@ export const getAllQytetet=() => async(dispatch) =>{
                                         //nxit aksionin me ndodh
 export const getQyteti = (id) => async(dispatch ) => {
     try{
-        const response = await axios.get(`http://192.168.0.22:8081/meaxhimi-spitalit-app/api/qyteti/${id}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('jwtToken')}` // Marrja e JWT token-it nga localStorage
-                }
-            }
-        );
+        const response = await axios.get(`http://localhost:8081/api/qyteti/${id}`);
         dispatch( { 
             type: GET_QYTETI,
             payload: response.data
@@ -72,16 +66,25 @@ export const getQyteti = (id) => async(dispatch ) => {
 };
 export const deleteQyteti =(id) => async(dispatch)=>{
     if(window.confirm("Jeni i sigurt qe doni te fshini kete")){
-        await axios.delete(`http://192.168.0.22:8081/meaxhimi-spitalit-app/api/qyteti/${id}`,{
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem('jwtToken')}` // Marrja e JWT token-it nga localStorage
-            }
-        }
-    );
+        await axios.delete(`http://localhost:8081/api/qyteti/${id}`);
         dispatch({
             type: DELETE_QYTETI,
             payload: id,
         });
     }
 
+};
+export const getQytetiCount = () => async (dispatch) => {
+    try {
+        const response = await axios.get("http://localhost:8081/api/qyteti/count");
+        dispatch({
+            type: GET_QYTETI_COUNT,
+            payload: response.data
+        });
+    } catch (error) {
+        dispatch({
+            type: GET_ERRORS,
+            payload: error.response?.data || { message: "Something went wrong" }
+        });
+    }
 };

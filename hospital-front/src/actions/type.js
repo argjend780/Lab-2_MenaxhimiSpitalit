@@ -4,5 +4,6 @@ export const GET_QYTETETS ="GET_QYTETETS";
 export const GET_QYTETI="GET_QYTETI";
 export const CREATE_QYTETI="CREATE_QYTETI";
 export const DELETE_QYTETI="DELETE_QYTETI";
+export const GET_QYTETI_COUNT = "GET_QYTETI_COUNT";
 
 

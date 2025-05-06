@@ -13,24 +13,40 @@ const Dashboard = () => {
 export default Dashboard;
 */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import DashboardCard from './DashboardCard';
+import { useActionData } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { MapPin } from 'lucide-react';
+
+
+import { getQytetiCount } from '../actions/QyteteAction';
 
 const Dashboard = () => {
+  const dispatch=useDispatch();
+
+  const qytetiCount = useSelector((state) => state.qytetiReducerContent.count?.count);
+
+
+
+  useEffect(() => {
+    dispatch(getQytetiCount());
+  }, [dispatch]);
+
   const data = [
     {
-      title: 'Total Profit',
-      value: '$1,783',
-      change: '+11% From Previous Month',
-      icon: '🎥',
-      color: 'bg-red-500',
+     title: 'Total Qytetet',
+      value: qytetiCount,  
+      change: '',  
+      icon:  <MapPin className="w-8 h-8" />,  
+      color: 'bg-blue-500',  
     },
     {
       title: 'Total Orders',
       value: '15,830',
       change: '+12% From Previous Month',
       icon: '📦',
-      color: 'bg-blue-500',
+      color: 'bg-red-500',
     },
     {
       title: 'Average Price',

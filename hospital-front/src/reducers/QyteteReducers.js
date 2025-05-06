@@ -1,5 +1,5 @@
 // importimi i actions type
-import { GET_QYTETETS,GET_QYTETI,CREATE_QYTETI,DELETE_QYTETI } from "../actions/type";
+import { GET_QYTETETS,GET_QYTETI,CREATE_QYTETI,DELETE_QYTETI,GET_QYTETI_COUNT } from "../actions/type";
 
 //definimi i inialState
 const inialState = {
@@ -28,6 +28,11 @@ export default function qytetiReducer (state= inialState , action){
             return{
                 ...state,
                 qytetets: state.qytetets.filter((qytet) => qytet.id !== action.payload)
+            };
+        case GET_QYTETI_COUNT:
+            return{
+                ...state,
+                count: action.payload
             };
         default:
             return state;        

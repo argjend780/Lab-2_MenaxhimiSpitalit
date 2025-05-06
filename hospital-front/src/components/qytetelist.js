@@ -1,5 +1,7 @@
 import React ,{useEffect} from "react";
 import Qyteti from './Qytete/qyteti';
+import { Link } from "react-router-dom";
+import { MapPin, Plus } from 'lucide-react';
 
 import { getAllQytetet } from "../actions/QyteteAction";
 import { useSelector, useDispatch } from "react-redux";
@@ -39,12 +41,23 @@ function QytetiList(){
     }, []);*/
     return(
         <div className="container">
-        
-        {qytetilist.map((qytet) =>(
-            <Qyteti key={qytet.id} qytet={qytet}/>
-        ))}
-
-        </div>
+        <div className="mb-6">
+        <Link
+          to="/createQytetiForm"
+          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700"
+        >
+          <Plus className="w-5 h-5 mr-2" />
+          Krijo Qytet
+        </Link>
+      </div>
+   <div className="w-full p-2">
+  <div className="flex flex-wrap gap-4 justify-start">
+    {qytetilist.map((qytet) => (
+      <Qyteti key={qytet.id} qytet={qytet} />
+    ))}
+  </div>
+</div>
+  </div>
     );
 
 }
