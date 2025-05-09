@@ -28,18 +28,6 @@ function Qyteti(props) {
             });
         }
     }, [dispatch]);*/
-
-    
-    <div className="w-full flex justify-center mt-6 mb-4">
-    <Link
-      to="/shtoqytet"
-      className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition"
-    >
-      <Plus className="w-5 h-5 mr-2" />
-      Krijo Qytet
-    </Link>
-  </div>
-
     return (
        
        /* <div className='container d-flex flex-row'>
@@ -80,7 +68,7 @@ function Qyteti(props) {
                 <ul className="mt-2 space-y-2">
                     <li>
                         <Link
-                            to={`/qytet/${qytet.id}/spitale`} // Linku për spitale
+                            to={`/spitaletlist/${qytet.id}`} // Linku për spitale
                             className="text-blue-500 hover:underline"
                         >
                             Spitale në {qytet.emri}
