@@ -41,11 +41,11 @@ function QytetiList(){
     }, []);*/
     return(
         <div className="container">
-        <div className="mb-6">
-        <Link
-          to="/createQytetiForm"
-          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700"
-        >
+          <div className="mb-6">
+          <Link
+            to="/createQytetiForm"
+            className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700"
+          >
           <Plus className="w-5 h-5 mr-2" />
           Krijo Qytet
         </Link>

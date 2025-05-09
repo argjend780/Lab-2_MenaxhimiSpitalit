@@ -7,7 +7,10 @@ import SidebarMenu from './components/SlidebarMenu';
 import QytetiList from './components/qytetelist';
 import Dashboard from './pages/Dashboard'; // Importoni Dashboard nga faqja e dashboard-it
 import AddQyteti from './components/Qytete/addQytete'; 
-import UpdateQyteti from './components/Qytete/uptadeQyteti'
+import UpdateQyteti from './components/Qytete/uptadeQyteti';
+import SpitaliList from './components/spitalilist';
+import UpdateSpitali from './components/Spitali/uptadespitali'; 
+import AddSpitali from './components/Spitali/createSpitali';
 
 <link href="./output.css" rel="stylesheet"></link>; // Importoni CSS-in e Tailwind
 
@@ -24,8 +27,13 @@ const App = () => {
               <Route path="/calendar" element={<h1>Calendar Page</h1>} />
               <Route path="/e-commerce" element={<h1>E-commerce Page</h1>} />
               <Route path="/qytetetlist" element={<QytetiList />} />
-            <Route exact path='/createQytetiForm' element={<AddQyteti />} />
-            <Route exact path='/uptadeQytetiform/:id' element={<UpdateQyteti />} />
+              <Route exact path='/createQytetiForm' element={<AddQyteti />} />
+              <Route exact path='/uptadeQytetiform/:id' element={<UpdateQyteti />} />
+              <Route exact path='/spitaletlist/:qyteti_id' element={<SpitaliList />} />
+              <Route exact path="/updateSpitaliForm/:qytetiId/:spitaliId" element={<UpdateSpitali />} />
+              <Route exact path="/createSpitaliForm/:qytetiId" element={<AddSpitali />} />
+              
+            
             </Routes>
           </main>
         </div>

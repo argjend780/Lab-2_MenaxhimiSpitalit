@@ -47,20 +47,19 @@ public class SpitaliController {
     }
 
     @GetMapping("/reparti/{repartiId}")
-    public ResponseEntity<List<Spitali>> getSpitaletList(@PathVariable long repartiId) {
+    public ResponseEntity<List<Spitali>> getSpitaletList(@PathVariable ("repartiId") long repartiId) {
         List<Spitali> spitaletList = spitaliService.getSpitaliList(repartiId);
         return new ResponseEntity<>(spitaletList, HttpStatus.OK);
     }
    
     @DeleteMapping("/delete/{repartiId}/{id}")
-    public ResponseEntity<?> deleteSpitaliById(@PathVariable Long repartiId, 
-    		@PathVariable Long id) {
-    
+    public ResponseEntity<?> deleteSpitaliById(@PathVariable ("repartiId") Long repartiId, 
+    		@PathVariable ("id") Long id) {
         return spitaliService.deleteMjeketById(repartiId, id);
     }
 
     @GetMapping("/get/{repartiId}/{mjeketID}")
-    public ResponseEntity<Spitali> getMjeket(@PathVariable Long repartiId, @PathVariable Long mjeketID) {
+    public ResponseEntity<Spitali> getSpitali(@PathVariable ("repartiId") Long  repartiId, @PathVariable ("mjeketID") Long mjeketID) {
         Spitali spitalet = spitaliService.getSpitali(repartiId, mjeketID);
         return new ResponseEntity<>(spitalet, HttpStatus.OK);
     }
