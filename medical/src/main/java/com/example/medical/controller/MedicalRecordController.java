@@ -1,5 +1,6 @@
 package com.example.medical.controller;
 
+import com.example.medical.config.KafkaProducer;
 import com.example.medical.model.LabResult;
 import com.example.medical.model.MedicalImage;
 import com.example.medical.model.MedicalRecord;
@@ -18,7 +19,12 @@ public class MedicalRecordController {
     @Autowired
     private MedicalRecordService service;
 
-    
+    private final KafkaProducer kafkaProducer;
+
+    public MedicalRecordController(KafkaProducer kafkaProducer) {
+        this.kafkaProducer = kafkaProducer;
+    }
+
     @PostMapping
     public MedicalRecord create(@RequestBody MedicalRecord record) {
         record.setCreatedAt(LocalDateTime.now());
@@ -71,4 +77,11 @@ public class MedicalRecordController {
     public List<MedicalRecord> getRecordsByPacientId(@PathVariable Long pacientId) {
         return service.findByPacientId(pacientId);
     }
+
+    @GetMapping("/send/{id}")
+    public String sendMedicalRecordToKafka(@PathVariable String id) {
+        kafkaProducer.fetchFromDbAndSendToKafka(id);
+        return "Kafka event triggered for record id: " + id;
+    }
+
 }

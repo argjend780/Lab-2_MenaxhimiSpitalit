@@ -18,6 +18,7 @@ public class MedicalRecord {
     private LocalDateTime createdAt;
     private List<LabResult> labResults = new ArrayList<>();
     private List<MedicalImage> medicalImages = new ArrayList<>();
+
       public Long getPacientId() {
         return pacientId;
     }

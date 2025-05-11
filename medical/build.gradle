@@ -1,31 +1,63 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.4.5'
-	id 'io.spring.dependency-management' version '1.1.7'
+    id 'java'
+    id 'org.springframework.boot' version '3.4.5'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.google.protobuf' version '0.9.4' // Add protobuf plugin
 }
 
 group = 'com.example.medical'
 version = '0.0.1-SNAPSHOT'
 
 java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(21)
-	}
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    // Spring Boot and MongoDB
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Spring Cloud OpenFeign
     implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.2.0'
 
+    // Kafka
+    implementation 'org.springframework.kafka:spring-kafka:3.3.0'  // Kafka dependency
+
+    // Protobuf (for gRPC)
+    implementation 'com.google.protobuf:protobuf-java:4.29.1'
+    implementation 'io.grpc:grpc-netty-shaded:1.68.1'
+    implementation 'io.grpc:grpc-protobuf:1.68.1'
+    implementation 'io.grpc:grpc-stub:1.68.1'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.25.5"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.68.1"
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                grpc {}
+            }
+        }
+    }
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
