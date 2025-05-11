@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package medical.records;
+
+message LabResult {
+  string testType = 1;
+  string resultValue = 2;
+  string resultDate = 3;
+  // Fusha "image" është hequr për të mos u dërguar fare
+}
+
+message Image {
+  string fileUrl = 1;
+  string description = 2;
+  string uploadedAt = 3;
+}
+
+message MedicalRecord {
+  string id = 1;
+  string pacientId = 2;
+  string diagnosis = 3;
+  string treatmentPlan = 4;
+  string notes = 5;
+  string createdAt = 6;
+  repeated LabResult labResults = 7;
+  repeated MedicalImage medicalImages = 8;
+}
+
+message MedicalImage {
+  string imageType = 1;
+  string fileUrl = 2;
+  string uploadedAt = 3;
+}
