@@ -4,7 +4,7 @@ import spitaliReducer from "./SpitaliReducer";
 import repartiReducer from "./RepartiReducers";
 import PacinetReducer from "./PacinetiReducers";
 import errorReducer from "./errorReducer";
-
+import mjeketReducer from "./MjeketReduser";
 
 import { RESET_STORE } from "../actions/type";
 const rootReducer= combineReducers({
@@ -14,6 +14,7 @@ const rootReducer= combineReducers({
     repartiReducerContent: repartiReducer,
     pacinetReducerContent: PacinetReducer,
    
+    mjeketReducerContetnt:mjeketReducer,
 });
 const rootReducerr = (state, action) => {
     if (action.type === RESET_STORE) {
