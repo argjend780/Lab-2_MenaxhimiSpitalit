@@ -14,6 +14,10 @@ import AddSpitali from './components/Spitali/createSpitali';
 import RepartiList from './components/repartlist'; 
 import AddReparti from './components/Reparti/addReparti'; 
 import UpdateReparti from './components/Reparti/updateReparti'; 
+import MjketList from './components/mjekteList';
+import AddMjket from './components/Mjekete/addMjeket';
+import UptadeMjeket from './components/Mjekete/updateMjket'; // Importoni komponentin e mjekteve
+
 
 <link href="./output.css" rel="stylesheet"></link>; // Importoni CSS-in e Tailwind
 
@@ -38,7 +42,9 @@ const App = () => {
               <Route exact path="/repartiList/:qytetiId/:spitaliId" element={<RepartiList />} />
               <Route exact path="/createRepartiForm/:qytetiId/:spitaliId" element={<AddReparti />} />
               <Route exact path="/updateRepartiform/:qytetiId/:spitaliId/:repartiId" element={<UpdateReparti />} />
-              
+              <Route exact path="/mjeketList/:qytetiId/:spitaliId/:repartiId" element={<MjketList />} />
+              <Route exact path='/addMjeket/:qytetiId/:spitaliId/:repartiId' element={<AddMjket />} />
+              <Route exact path="/updateMjekeForm/:qytetiId/:spitaliId/:repartiId/:mjketId" element={<UptadeMjeket />} />
             
             </Routes>
           </main>
