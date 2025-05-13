@@ -22,18 +22,21 @@ import { MapPin } from 'lucide-react';
 
 import { getQytetiCount } from '../actions/QyteteAction';
 import { getSpitaliCount } from '../actions/SpitaliAction';
+import { getPacinetCount } from '../actions/PacinetActions';
 
 const Dashboard = () => {
   const dispatch=useDispatch();
 
   const qytetiCount = useSelector((state) => state.qytetiReducerContent.count?.count);
   const spitaliCount = useSelector((state) => state.spitaliReducerContent.count?.count);
-
+  const pacinetCount = useSelector((state) => state.pacinetReducerContent.count?.count);
 
   useEffect(() => {
     dispatch(getQytetiCount());
     dispatch(getSpitaliCount());
+    dispatch(getPacinetCount());
   }, [dispatch]);
+  console.log("Pacient Count:", pacinetCount);
 
 
   const data = [
@@ -52,10 +55,10 @@ const Dashboard = () => {
       color: 'bg-red-500',
     },
     {
-      title: 'Average Price',
-      value: '$6,780',
-      change: '+25% From Previous Month',
-      icon: '💵',
+      title: 'Total Pacientët',
+      value: pacinetCount,
+      change: '',
+      icon: '🧑',
       color: 'bg-green-500',
     },
     {

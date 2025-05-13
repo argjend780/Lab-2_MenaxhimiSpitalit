@@ -1,4 +1,5 @@
 package org.meanxhimispitalit.menaxhimispitalit.controller;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,20 +45,25 @@ public class PacientiController {
 	    }
 	    @GetMapping(path = "/o/{qytetiId}/{spitaliId}/{repartiId}/{pacinetId}")
 	    public Pacienti getPacientById(
-	    		@PathVariable Long qytetiId, @PathVariable Long spitaliId,
-	    		@PathVariable Long repartiId,@PathVariable Long pacinetId) {
+	    		@PathVariable ("qytetiId") Long qytetiId, @PathVariable ("spitaliId") Long spitaliId,
+	    		@PathVariable ("repartiId") Long repartiId,@PathVariable ("pacinetId") Long pacinetId) {
 	        return pacientService.getPacient(qytetiId, spitaliId,repartiId,pacinetId);
 	    }
 	    @GetMapping(path = "/all/{qytetiId}/{spitaliId}/{repartiId}")
-	    public List<Pacienti>getPacientList(@PathVariable Long qytetiId,@PathVariable Long spitaliId,@PathVariable Long repartiId){
+	    public List<Pacienti>getPacientList(@PathVariable ("qytetiId") Long qytetiId,@PathVariable ("spitaliId") Long spitaliId,@PathVariable ("repartiId") Long repartiId){
 	    	return pacientService.getPacinetList(qytetiId,spitaliId,repartiId);
 	    }
 		
 	    @DeleteMapping(path = "/delete/{departmentId}/{id}")
-	    public ResponseEntity<?>deletePacientById(@PathVariable Long departmentId, @PathVariable Long id){
+	    public ResponseEntity<?>deletePacientById(@PathVariable ("departmentId") Long departmentId, @PathVariable ("id") Long id){
 			
 	    	return pacientService.deletePacinetById(departmentId,id);
 	    	
 	    }
+		 @GetMapping("/count")
+		public Map<String, Long> getPacinetCount() {
+		long count = pacientService.countPacientet();
+		return Collections.singletonMap("count", count);
+		}
 }
 

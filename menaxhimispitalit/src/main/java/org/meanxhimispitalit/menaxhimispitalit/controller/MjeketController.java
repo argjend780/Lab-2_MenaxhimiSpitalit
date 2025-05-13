@@ -15,7 +15,7 @@ import org.meanxhimispitalit.menaxhimispitalit.service.MjeketService;
 
 @RestController
 @RequestMapping("/api/mjeket")
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class MjeketController {
 
     private final MjeketService mjeketService;
@@ -25,8 +25,8 @@ public class MjeketController {
     }
 
     @PostMapping(path = "/{qytetiId}/{SpitaliID}/{repartiID}")
-    public ResponseEntity<?> createMjeket(@PathVariable Long qytetiId, @PathVariable Long SpitaliID,
-                                          @PathVariable Long repartiID,
+    public ResponseEntity<?> createMjeket(@PathVariable ("qytetiId") Long qytetiId, @PathVariable ("SpitaliID") Long SpitaliID,
+                                          @PathVariable ("repartiID") Long repartiID,
                                         @RequestBody Mjeket mjeket
                                          ) {
         return ResponseEntity.ok(mjeketService.teOrUpdateMjeket(mjeket, qytetiId, SpitaliID, repartiID));
@@ -56,7 +56,7 @@ public class MjeketController {
     }
 
     @GetMapping(path = "/all/{qytetiId}/{spitaliId}/{repartiId}")
-    public List<Mjeket> getEmployeeList(@PathVariable Long qytetiId, @PathVariable Long spitaliId, @PathVariable Long repartiId) {
+    public List<Mjeket> getEmployeeList(@PathVariable ("qytetiId") Long qytetiId, @PathVariable ("spitaliId") Long spitaliId, @PathVariable ("repartiId") Long repartiId) {
         return mjeketService.getMjeketList(qytetiId, spitaliId, repartiId);
     }
 
