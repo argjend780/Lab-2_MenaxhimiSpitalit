@@ -12,7 +12,9 @@ const rootReducer= combineReducers({
     qytetiReducerContent: qytetiReducer,
     spitaliReducerContent:spitaliReducer,
     repartiReducerContent: repartiReducer,
+    pacinetReducerContent: PacinetReducer,
    
+    mjeketReducerContetnt:mjeketReducer,
 });
 const rootReducerr = (state, action) => {
     if (action.type === RESET_STORE) {
