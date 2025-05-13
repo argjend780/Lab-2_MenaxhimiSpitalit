@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import qytetiReducer from "./QyteteReducers";
 import spitaliReducer from "./SpitaliReducer";
+import repartiReducer from "./RepartiReducers";
 import errorReducer from "./errorReducer";
 
 
@@ -9,6 +10,7 @@ const rootReducer= combineReducers({
     errorReducerContent: errorReducer,
     qytetiReducerContent: qytetiReducer,
     spitaliReducerContent:spitaliReducer,
+    repartiReducerContent: repartiReducer,
    
 });
 const rootReducerr = (state, action) => {

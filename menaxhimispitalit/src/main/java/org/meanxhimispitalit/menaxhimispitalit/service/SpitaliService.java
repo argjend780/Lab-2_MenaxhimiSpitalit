@@ -85,6 +85,9 @@ public class SpitaliService {
 	    
 	    	return spitalet;
 	    }
+		public Long countSpitalet() {
+        return spitalirepository.count();
+    }
 	}
 
 

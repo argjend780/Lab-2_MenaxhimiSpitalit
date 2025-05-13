@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_SPITALI, GET_SPITALIS, CREATE_SPITALI, DELETE_SPITALI, GET_ERRORS } from "./type";
+import { GET_SPITALI, GET_SPITALIS, CREATE_SPITALI, DELETE_SPITALI, GET_SPITALI_COUNT,GET_ERRORS } from "./type";
 
 export const getSpitaletList = (qyteti_id) => async (dispatch) => {
     try {
@@ -61,6 +61,20 @@ export const deleteEmployee = (qytetiId, spitaliId) => async (dispatch) => {
         dispatch({
             type: GET_ERRORS,
             payload: error.response ? error.response.data : "Gabim Rrjeti"
+        });
+    }
+};
+export const getSpitaliCount = () => async (dispatch) => {
+    try {
+        const response = await axios.get("http://localhost:8081/api/spitalet/count");
+        dispatch({
+            type: GET_SPITALI_COUNT,
+            payload: response.data
+        });
+    } catch (error) {
+        dispatch({
+            type: GET_ERRORS,
+            payload: error.response?.data || { message: "Something went wrong" }
         });
     }
 };
