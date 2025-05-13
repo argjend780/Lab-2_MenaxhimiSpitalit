@@ -21,17 +21,20 @@ import { MapPin } from 'lucide-react';
 
 
 import { getQytetiCount } from '../actions/QyteteAction';
+import { getSpitaliCount } from '../actions/SpitaliAction';
 
 const Dashboard = () => {
   const dispatch=useDispatch();
 
   const qytetiCount = useSelector((state) => state.qytetiReducerContent.count?.count);
-
+  const spitaliCount = useSelector((state) => state.spitaliReducerContent.count?.count);
 
 
   useEffect(() => {
     dispatch(getQytetiCount());
+    dispatch(getSpitaliCount());
   }, [dispatch]);
+
 
   const data = [
     {
@@ -42,10 +45,10 @@ const Dashboard = () => {
       color: 'bg-blue-500',  
     },
     {
-      title: 'Total Orders',
-      value: '15,830',
-      change: '+12% From Previous Month',
-      icon: '📦',
+      title: 'Total Spitalet',
+      value:  spitaliCount,
+      change: '',
+      icon: '🏥',
       color: 'bg-red-500',
     },
     {

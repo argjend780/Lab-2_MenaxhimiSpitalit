@@ -11,7 +11,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/spitalet")
@@ -62,5 +64,10 @@ public class SpitaliController {
     public ResponseEntity<Spitali> getSpitali(@PathVariable ("repartiId") Long  repartiId, @PathVariable ("mjeketID") Long mjeketID) {
         Spitali spitalet = spitaliService.getSpitali(repartiId, mjeketID);
         return new ResponseEntity<>(spitalet, HttpStatus.OK);
+    }
+    @GetMapping("/count")
+    public Map<String, Long> getCityCount() {
+    long count = spitaliService.countSpitalet();
+    return Collections.singletonMap("count", count);
     }
 }

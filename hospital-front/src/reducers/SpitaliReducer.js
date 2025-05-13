@@ -1,4 +1,4 @@
-import { GET_SPITALI,GET_SPITALIS,CREATE_SPITALI,DELETE_SPITALI } from "../actions/type";
+import { GET_SPITALI,GET_SPITALIS,CREATE_SPITALI,DELETE_SPITALI,GET_SPITALI_COUNT } from "../actions/type";
 
 const initialState = {
     spitalis: [],
@@ -27,6 +27,11 @@ export default function spitaliReducer(state = initialState, action) {
                 ...state,
                 spitalis: state.spitalis.filter((employee) => employee.id !== action.payload)
             };
+        case GET_SPITALI_COUNT:
+                    return{
+                        ...state,
+                        count: action.payload
+                    };       
         default:
             return state; // Removed unnecessary object wrapping
     }
