@@ -25,14 +25,18 @@ private String address;
 
 @Column(name = "email",nullable = false)
 private String email;
-/* 
+
 @Column(name = "phoneNumber",nullable = false)
 private String phoneNumber;
-*/
+
 @JsonBackReference
 @ManyToOne(fetch = FetchType.EAGER)
 @JoinColumn(name = "departmentId", nullable = false, updatable = false)
 private Reparti reparti;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Schedule> schedules;
 
 public long getId() {
     return id;
@@ -66,14 +70,14 @@ public void setEmail(String email) {
     this.email = email;
 }
 
-/*public String getPhoneNumber() {
+public String getPhoneNumber() {
     return phoneNumber;
 }
 
 public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
 }
-*/
+
 public Reparti getReparti() {
     return reparti;
 }
