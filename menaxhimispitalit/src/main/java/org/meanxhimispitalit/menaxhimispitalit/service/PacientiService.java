@@ -38,7 +38,16 @@ public class PacientiService {
 	    
 	    
 	    
-	    public List<Pacienti> getPacinetList(Long qytetiId ,Long spitaliId,Long repartiId){	
+		public List<Pacienti> getPacinetList(Long qytetiId, Long spitaliId, Long repartiId) {
+			List<Pacienti> pacientet = repartiservice.getTask(qytetiId, spitaliId, repartiId).getPacientiliste();
+
+			if (pacientet == null || pacientet.isEmpty()) {
+				throw new RuntimeException("Nuk u gjetën pacientë për këtë repart.");
+			}
+
+			return pacientet;
+		}
+	    /*public List<Pacienti> getPacinetList(Long qytetiId ,Long spitaliId,Long repartiId){	
 	    	return repartiservice.getTask(qytetiId,spitaliId,repartiId).getPacientiliste();
 	    	}
 	    
@@ -85,6 +94,9 @@ public class PacientiService {
 	    
 	    	return pacinet;
 	    }
+		public Long countPacientet() {
+        	return pacientetrepository.count();
+    	}
 	}
 
 

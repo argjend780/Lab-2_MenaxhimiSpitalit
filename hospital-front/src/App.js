@@ -14,6 +14,9 @@ import AddSpitali from './components/Spitali/createSpitali';
 import RepartiList from './components/repartlist'; 
 import AddReparti from './components/Reparti/addReparti'; 
 import UpdateReparti from './components/Reparti/updateReparti'; 
+import PacinetList from './components/pacientlist';
+import AddPacinet from './components/Pacient/AddPacient'; 
+import UpdatePacienti from './components/Pacient/uptadePacinet';
 
 <link href="./output.css" rel="stylesheet"></link>; // Importoni CSS-in e Tailwind
 
@@ -38,6 +41,12 @@ const App = () => {
               <Route exact path="/repartiList/:qytetiId/:spitaliId" element={<RepartiList />} />
               <Route exact path="/createRepartiForm/:qytetiId/:spitaliId" element={<AddReparti />} />
               <Route exact path="/updateRepartiform/:qytetiId/:spitaliId/:repartiId" element={<UpdateReparti />} />
+
+              <Route exact path="/pacinetList/:qytetiId/:spitaliId/:repartiId" element={<PacinetList />} />
+              <Route exact path='/addPacinet/:qytetiId/:spitaliId/:repartiId' element={<AddPacinet />} />
+              <Route exact path="/updatePacinetiForm/:qytetiId/:spitaliId/:repartiId/:pacientId" element={<UpdatePacienti />} />
+
+
               
             
             </Routes>

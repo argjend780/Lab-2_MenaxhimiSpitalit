@@ -49,7 +49,7 @@ public class Pacienti {
 	
 	@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "reparti_id")
+    @JoinColumn(name = "departmentId", nullable = false, updatable = false)
     private Reparti reparti;
 	
 	/*@OneToOne(fetch = FetchType.EAGER, mappedBy = "pacienti")
