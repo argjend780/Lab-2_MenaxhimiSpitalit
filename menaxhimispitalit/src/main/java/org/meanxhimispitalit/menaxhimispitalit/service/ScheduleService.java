@@ -2,6 +2,7 @@ package org.meanxhimispitalit.menaxhimispitalit.service;
 
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Mjeket;
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Schedule;
+import org.meanxhimispitalit.menaxhimispitalit.dto.ScheduleDTO;
 import org.meanxhimispitalit.menaxhimispitalit.repository.MjeketRepository;
 import org.meanxhimispitalit.menaxhimispitalit.repository.ScheduleRepository;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -63,5 +64,12 @@ public class ScheduleService {
         LocalDate today = LocalDate.now();
         LocalDate weekLater = today.plusDays(7);
         generateSchedulesForAllDoctors(today, weekLater);
+    }
+
+    public List<LocalDate> getAvailableDatesByDoctor(Long doctorId) {
+        return scheduleRepository.findDistinctAvailableDatesByDoctor(doctorId);
+    }
+    public List<ScheduleDTO> getAvailableHoursByDoctorAndDate(Long doctorId, LocalDate date) {
+        return scheduleRepository.findAvailableHoursByDoctorAndDate(doctorId, date);
     }
 }
