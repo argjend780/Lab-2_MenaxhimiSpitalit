@@ -13,7 +13,7 @@ function AddMjket() {
         name: "",
         address: "",
         email: "",
-        phoneNumber: ""
+        //phoneNumber: ""
     });
 
     const onChange = (event) => {
@@ -104,7 +104,7 @@ return (
         </div>
 
         {/* Numri i telefonit */}
-        <div>
+        {/*<div>
           <label htmlFor="phoneNumber" className="block font-semibold text-gray-700 mb-1">Numri i telefonit</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-red-600">
@@ -123,7 +123,7 @@ return (
             />
           </div>
           {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
-        </div>
+        </div>*/}
 
         {/* Butoni Submit */}
         <button

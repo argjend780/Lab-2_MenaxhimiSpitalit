@@ -26,8 +26,8 @@ private String address;
 @Column(name = "email",nullable = false)
 private String email;
 
-@Column(name = "phoneNumber",nullable = false)
-private String phoneNumber;
+//@Column(name = "phoneNumber",nullable = false)
+//private String phoneNumber;
 
 @JsonBackReference
 @ManyToOne(fetch = FetchType.EAGER)
@@ -70,13 +70,14 @@ public void setEmail(String email) {
     this.email = email;
 }
 
+/* 
 public String getPhoneNumber() {
     return phoneNumber;
 }
 
 public void setPhoneNumber(String phoneNumber) {
     this.phoneNumber = phoneNumber;
-}
+}*/
 
 public Reparti getReparti() {
     return reparti;

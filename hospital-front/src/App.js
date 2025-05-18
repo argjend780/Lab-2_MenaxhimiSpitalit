@@ -16,7 +16,7 @@ import AddReparti from './components/Reparti/addReparti';
 import UpdateReparti from './components/Reparti/updateReparti'; 
 import PacinetList from './components/pacientlist';
 import AddPacinet from './components/Pacient/AddPacient'; 
-import UpdatePacienti from './components/Pacient/uptadePacinet
+import UpdatePacienti from './components/Pacient/uptadePacinet';
 import MjketList from './components/mjekteList';
 import AddMjket from './components/Mjekete/addMjeket';
 import UptadeMjeket from './components/Mjekete/updateMjket'; // Importoni komponentin e mjekteve
