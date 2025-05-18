@@ -31,7 +31,7 @@ function RepartiList() {
        
         
                 <button
-                    onClick={() => navigate(`/spitaletlist/${spitaliId}`)}
+                    onClick={() => navigate(`/spitaletlist/${qytetiId}`)}
                     className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-xl shadow hover:bg-red-700 right-6 top-2 mt-4 mr-4"
                 >
                     <ArrowLeft className="w-5 h-5 mr-2" />

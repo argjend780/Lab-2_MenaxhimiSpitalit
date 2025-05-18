@@ -103,7 +103,7 @@ return (
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
 
-        {/* Numri i telefonit */}
+        {/* Numri i telefonit }
         <div>
           <label htmlFor="phoneNumber" className="block font-semibold text-gray-700 mb-1">Numri i telefonit</label>
           <div className="relative">
@@ -123,7 +123,7 @@ return (
             />
           </div>
           {errors.phoneNumber && <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>}
-        </div>
+        </div>*/}
 
         {/* Butoni Submit */}
         <button

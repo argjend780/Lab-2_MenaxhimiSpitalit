@@ -40,7 +40,7 @@ const SidebarMenu = () => {
           </MenuItem>
 
           <SubMenu label="Pacientët" icon={<Users size={18} />}>
-            <MenuItem component={<Link to="/pacientet" />}> Listo Pacientët </MenuItem>
+            <MenuItem component={<Link to="/ListPacinet/:qytetiId/:spitaliId/:repartiId" />}> Listo Pacientët </MenuItem>
             <MenuItem component={<Link to="/pacientet-create" />}> Krijo Pacient </MenuItem>
           </SubMenu>
 

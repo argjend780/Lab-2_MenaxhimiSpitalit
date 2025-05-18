@@ -25,7 +25,7 @@ function Mjekt({ qytetiId, spitaliId, mjeket, repartiId }) {
       <h2 className="text-xl font-semibold text-green-800 mb-2">{mjeket.name}</h2>
       <p className="text-sm text-gray-600 mb-1">{mjeket.address}</p>
       <p className="text-sm text-gray-600 mb-1">{mjeket.email}</p>
-      <p className="text-sm text-gray-600">{mjeket.phoneNumber}</p>
+      {/*<p className="text-sm text-gray-600">{mjeket.phoneNumber}</p>*/}
     </div>
 
     {/* Butonat */}

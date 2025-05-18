@@ -53,7 +53,7 @@ return (
             to={`/updatePacinetiForm/${qytetiId}/${spitaliId}/${repartiId}/${pacient.id}`}
             className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
         >
-            <i className="fa fa-edit mr-2"></i>Update Employee
+            <i className="fa fa-edit mr-2"></i>Update Pacinetin
         </Link>
 
         {/* Butoni për "Delete Employee" */}
@@ -61,7 +61,7 @@ return (
             onClick={() => onClickdeleteEmployee(repartiId, pacient.id)}
             className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
         >
-            <i className="fa fa-trash mr-2"></i>Delete Employee
+            <i className="fa fa-trash mr-2"></i>Delete Pacinetin
         </button>
     </div>
 </div>

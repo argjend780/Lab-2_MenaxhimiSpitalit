@@ -15,6 +15,8 @@ export default Dashboard;
 
 import React, { useEffect } from 'react';
 import DashboardCard from './DashboardCard';
+import Statistikat from './Statistikat';
+import LineChartPacientet7Ditet from './Line';
 import { useActionData } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MapPin } from 'lucide-react';
@@ -36,7 +38,7 @@ const Dashboard = () => {
     dispatch(getSpitaliCount());
     dispatch(getPacinetCount());
   }, [dispatch]);
-  console.log("Pacient Count:", pacinetCount);
+  //console.log("Pacient Count:", pacinetCount);
 
 
   const data = [
@@ -72,10 +74,19 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-wrap gap-4 p-6">
+    
       {data.map((item, index) => (
         <DashboardCard key={index} {...item} />
       ))}
-    </div>
+      <div className="w-full flex flex-row gap-4">
+      <div className="w-1/2">
+        <Statistikat />
+      </div>
+      <div className="w-1/2">
+        <LineChartPacientet7Ditet />
+      </div>
+      </div>
+      </div>
   );
 };
 

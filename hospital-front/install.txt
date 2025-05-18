@@ -3,3 +3,7 @@ npm install react-redux
 npm install bootstrap  
 npm install react-router-dom
 npm install redux-thunk
+
+npm install recharts
+npm install docx file-saver
+npm install jspdf jspdf-autotable
