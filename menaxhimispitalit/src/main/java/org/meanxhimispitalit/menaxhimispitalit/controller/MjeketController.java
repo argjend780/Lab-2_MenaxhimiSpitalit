@@ -3,6 +3,7 @@ package org.meanxhimispitalit.menaxhimispitalit.controller;
 
 import java.util.List;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class MjeketController {
         this.mjeketService = mjeketService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(path = "/{qytetiId}/{SpitaliID}/{repartiID}")
     public ResponseEntity<?> createMjeket(@PathVariable ("qytetiId") Long qytetiId, @PathVariable ("SpitaliID") Long SpitaliID,
                                           @PathVariable ("repartiID") Long repartiID,
@@ -59,7 +61,7 @@ public class MjeketController {
     public List<Mjeket> getEmployeeList(@PathVariable ("qytetiId") Long qytetiId, @PathVariable ("spitaliId") Long spitaliId, @PathVariable ("repartiId") Long repartiId) {
         return mjeketService.getMjeketList(qytetiId, spitaliId, repartiId);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping(path = "/delete/{departmentId}/{id}")
     public ResponseEntity<?> deleteEmployeeById(
                                                 @PathVariable Long departmentId, @PathVariable Long id) {

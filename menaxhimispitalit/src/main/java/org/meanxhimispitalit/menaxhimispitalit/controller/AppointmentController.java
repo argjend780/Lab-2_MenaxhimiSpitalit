@@ -21,7 +21,7 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    // Krijimi i një takimi me dhomë të caktuar nga AI
+
     @PostMapping("/book")
     public ResponseEntity<Appointment> bookAppointment(@RequestParam Long patientId,
                                                        @RequestParam Long doctorId,

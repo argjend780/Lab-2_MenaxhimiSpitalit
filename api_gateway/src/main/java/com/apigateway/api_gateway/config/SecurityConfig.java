@@ -12,7 +12,8 @@ import org.springframework.security.web.server.authentication.HttpStatusServerEn
 @Configuration
 public class SecurityConfig {
 
-    @Bean
+    @SuppressWarnings("removal")
+@Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
@@ -22,7 +23,7 @@ public class SecurityConfig {
                 .exceptionHandling(handler -> handler
                         .authenticationEntryPoint(new HttpStatusServerEntryPoint(HttpStatus.UNAUTHORIZED))
                 )
-                .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt) // this is no longer deprecated
+                .oauth2ResourceServer(ServerHttpSecurity.OAuth2ResourceServerSpec::jwt) 
                 .build();
     }
 }
