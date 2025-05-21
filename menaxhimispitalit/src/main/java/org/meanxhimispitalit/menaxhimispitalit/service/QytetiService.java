@@ -1,8 +1,6 @@
 package org.meanxhimispitalit.menaxhimispitalit.service;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Qyteti;
 
 import org.meanxhimispitalit.menaxhimispitalit.repository.QytetiRepository;

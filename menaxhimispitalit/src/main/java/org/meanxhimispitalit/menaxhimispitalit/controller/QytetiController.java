@@ -8,7 +8,6 @@ import org.meanxhimispitalit.menaxhimispitalit.Entity.Qyteti;
 import org.meanxhimispitalit.menaxhimispitalit.service.QytetiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Collections;
 import java.util.Map;
@@ -19,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/qyteti")
+@RequestMapping("/qyteti")
 @CrossOrigin
 public class QytetiController {
 

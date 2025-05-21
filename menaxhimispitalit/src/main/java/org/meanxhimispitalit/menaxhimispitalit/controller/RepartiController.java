@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/repartet")
+@RequestMapping("/repartet")
 @CrossOrigin
 public class RepartiController {
 

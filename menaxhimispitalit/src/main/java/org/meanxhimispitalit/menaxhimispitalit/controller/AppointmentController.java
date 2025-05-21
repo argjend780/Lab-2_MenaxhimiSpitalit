@@ -2,7 +2,6 @@ package org.meanxhimispitalit.menaxhimispitalit.controller;
 
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Appointment;
 import org.meanxhimispitalit.menaxhimispitalit.service.AppointmentService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +16,7 @@ public class AppointmentController {
 
     private final AppointmentService appointmentService;
 
-    @Autowired
+
     public AppointmentController(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }

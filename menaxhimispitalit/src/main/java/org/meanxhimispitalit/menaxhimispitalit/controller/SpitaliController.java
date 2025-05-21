@@ -1,12 +1,7 @@
 package org.meanxhimispitalit.menaxhimispitalit.controller;
 
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Spitali;
-import org.meanxhimispitalit.menaxhimispitalit.Entity.Reparti;
-import org.meanxhimispitalit.menaxhimispitalit.Entity.Qyteti;
-
 import org.meanxhimispitalit.menaxhimispitalit.service.SpitaliService;
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/spitalet")
+@RequestMapping("/spitalet")
 @CrossOrigin
 public class SpitaliController {
 

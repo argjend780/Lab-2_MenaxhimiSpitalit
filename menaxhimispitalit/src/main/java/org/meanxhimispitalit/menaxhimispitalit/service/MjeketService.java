@@ -2,35 +2,23 @@ package org.meanxhimispitalit.menaxhimispitalit.service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Mjeket;
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Reparti; 
 import org.meanxhimispitalit.menaxhimispitalit.repository.MjeketRepository;
-import org.meanxhimispitalit.menaxhimispitalit.repository.RepartiRepository;
-import org.meanxhimispitalit.menaxhimispitalit.service.RepartiService;
-
-
-
 
 
 @Service
 public class MjeketService {
 
     private final MjeketRepository mjeketrepository;
-    private final RepartiRepository repartirepository;
     private final RepartiService repartiservice;
     private final ScheduleService scheduleService;
 
-    public MjeketService(MjeketRepository mjeketrepository, RepartiRepository repartirepository,
+    public MjeketService(MjeketRepository mjeketrepository,
                          RepartiService repartiservice, ScheduleService scheduleService) {
         this.mjeketrepository = mjeketrepository;
-        this.repartirepository = repartirepository;
         this.repartiservice = repartiservice;
         this.scheduleService = scheduleService;
     }

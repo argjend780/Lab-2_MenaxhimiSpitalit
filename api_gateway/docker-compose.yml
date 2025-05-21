@@ -1,0 +1,73 @@
+
+services:
+  # PostgreSQL Configuration
+  postgres:
+    image: postgres:17.4
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - dspostgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=digitalschool
+    restart: always
+    networks:
+      - menaxhimiIspitalit
+
+  # PgAdmin Configuration
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    ports:
+      - "85:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=drilo2020@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=drilon
+      - PGADMIN_MAX_LOGIN_ATTEMPTS=10
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    restart: always
+    networks:
+      - menaxhimiIspitalit
+
+  # Keycloak Configuration
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1
+    container_name: keycloak
+    depends_on:
+      - postgres
+    environment:
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: digitalschool
+      KC_HOSTNAME: localhost
+      KC_HOSTNAME_PORT: 8080
+      KC_HOSTNAME_STRICT: false
+      KC_HOSTNAME_STRICT_HTTPS: false
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    command: start-dev
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - menaxhimiIspitalit
+
+  polar-redis:
+   image: "redis:7.2"
+   container_name: "polar-redis"
+   ports:
+     - 6379:6379
+
+
+volumes:
+  dspostgres:
+    external: true
+  pgadmin-data:
+    external: true
+
+networks:
+  menaxhimiIspitalit:
+    external: true
