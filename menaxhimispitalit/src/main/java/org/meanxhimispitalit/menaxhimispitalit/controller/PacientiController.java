@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -62,6 +63,13 @@ public class PacientiController {
 		public Map<String, Long> getPacinetCount() {
 		long count = pacientService.countPacientet();
 		return Collections.singletonMap("count", count);
+		}
+		@GetMapping("/search")
+		public List<Pacienti> searchPacientet(@RequestParam("keyword") String keyword) {
+			if (keyword == null || keyword.trim().length() < 3) {
+				throw new RuntimeException("Keyword duhet të ketë së paku 3 shkronja");
+			}
+			return pacientService.searchPacientet(keyword);
 		}
 }
 

@@ -1,4 +1,4 @@
-import { GET_PACINETI,GET_PACINETS,CREATE_PACINETI,DELETE_PACIENTI,GET_PACIENTI_COUNT } from "../actions/type";
+import { GET_PACINETI,GET_PACINETS,CREATE_PACINETI,DELETE_PACIENTI,GET_PACIENTI_COUNT, PACINETS_SEARCH_REQUEST, PACINETS_SEARCH_SUCCESS, PACINETS_SEARCH_FAIL } from "../actions/type";
 import axios from "axios";
 import { GET_ERRORS } from "../actions/type";
 
@@ -93,7 +93,30 @@ export const getPacinetCount = () => async (dispatch) => {
         });
     }
 };
+export const searchPacinet = (term) => async (dispatch) => {
+  try {
+    if (!term || term.trim().length < 3) {
+      // Opsionale: mund ta shmangësh thirrjen e backend-it nëse keyword është shumë i shkurtër
+      throw new Error("Term duhet të ketë të paktën 3 shkronja");
+    }
 
+    dispatch({ type: PACINETS_SEARCH_REQUEST });
+
+    const res = await axios.get(
+      `http://localhost:8081/api/pacient/search?keyword=${term}`
+    );
+
+    dispatch({
+      type: PACINETS_SEARCH_SUCCESS,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PACINETS_SEARCH_FAIL,
+      payload: error.response?.data || error.message,
+    });
+  }
+};
 
 
 

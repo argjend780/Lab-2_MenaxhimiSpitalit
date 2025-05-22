@@ -21,6 +21,8 @@ import MjketList from './components/mjekteList';
 import AddMjket from './components/Mjekete/addMjeket';
 import UptadeMjeket from './components/Mjekete/updateMjket'; // Importoni komponentin e mjekteve
 import ListPacinet from './components/Pacient/serchPacient';
+import SearchPacinetPage from './components/Pacient/SerchPacinetPage'; // Importoni komponentin e kërkimit të pacientëve
+import Footer from './pages/Footer';
 
 <link href="./output.css" rel="stylesheet"></link>; // Importoni CSS-in e Tailwind
 
@@ -57,11 +59,13 @@ const App = () => {
               <Route exact path="/updateMjekeForm/:qytetiId/:spitaliId/:repartiId/:mjketId" element={<UptadeMjeket />} />
 
               <Route exact path="/ListPacinet/:qytetiId/:spitaliId/:repartiId" element={<ListPacinet />} />
+              <Route path="/search-pacinet" element={<SearchPacinetPage />} />
             </Routes>
           </main>
         </div>
       </Router>
     </Provider>
+  
   );
 };
 

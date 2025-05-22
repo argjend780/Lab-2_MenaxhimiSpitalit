@@ -10,6 +10,7 @@ import { getSpitaliCount } from '../actions/SpitaliAction';
 import { getPacinetCount } from '../actions/PacinetActions';
 //import LogoutButton from '../components/LogoutButton';
 //import keycloak from '../authClient';
+import Footer from './Footer';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ const Dashboard = () => {
         ))}
       </div>
 
+
       <div className="w-full flex flex-row gap-4 mt-6">
         <div className="w-1/2">
           <Statistikat />
@@ -79,6 +81,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
