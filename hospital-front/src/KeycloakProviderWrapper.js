@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+/*import React, { useEffect, useState } from 'react';
 import keycloak from './authClient';
 import App from './App';
 
@@ -37,4 +37,4 @@ const KeycloakProviderWrapper = () => {
   return <App />;
 };
 
-export default KeycloakProviderWrapper;
+export default KeycloakProviderWrapper;*/

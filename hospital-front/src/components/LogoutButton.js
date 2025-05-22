@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import keycloak from '../authClient';
 
 const LogoutButton = () => {
@@ -18,4 +18,4 @@ const LogoutButton = () => {
   );
 };
 
-export default LogoutButton;
+export default LogoutButton;*/

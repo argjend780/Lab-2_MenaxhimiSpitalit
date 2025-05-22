@@ -8,8 +8,8 @@ import { MapPin } from 'lucide-react';
 import { getQytetiCount } from '../actions/QyteteAction';
 import { getSpitaliCount } from '../actions/SpitaliAction';
 import { getPacinetCount } from '../actions/PacinetActions';
-import LogoutButton from '../components/LogoutButton';
-import keycloak from '../authClient';
+//import LogoutButton from '../components/LogoutButton';
+//import keycloak from '../authClient';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Dashboard = () => {
     dispatch(getPacinetCount());
   }, [dispatch]);
 
-  const username = keycloak.tokenParsed?.preferred_username || 'Përdorues';
+  //const username = keycloak.tokenParsed?.preferred_username || 'Përdorues';
 
   const data = [
     {
@@ -61,10 +61,7 @@ const Dashboard = () => {
     <div className="p-6">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-4xl font-bold">Dashboard</h1>
-        <div className="flex gap-4 items-center">
-          <span className="text-lg font-semibold">Pershendetje, {username}</span>
-          <LogoutButton />
-        </div>
+        
       </div>
 
       <div className="flex flex-wrap gap-4">
@@ -86,3 +83,8 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+/* <span className="text-lg font-semibold">Pershendetje, {username}</span> */
+/*<div className="flex gap-4 items-center">
+         
+          <LogoutButton />
+        </div> */

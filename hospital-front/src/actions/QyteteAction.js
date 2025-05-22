@@ -7,7 +7,7 @@ export const createQyteti = (qytet) => async (dispatch) => {
          // Log për të verifikuar token-in
 
         const response = await axios.post(
-            "http://localhost:8081/api/qyteti",
+            "http://localhost:8081/qyteti/",
             qytet
            
         );
@@ -36,7 +36,7 @@ export const createQyteti = (qytet) => async (dispatch) => {
 
 export const getAllQytetet=() => async(dispatch) =>{
     try {
-        const response = await axios.get(`http://localhost:8081/api/qyteti/all`);
+        const response = await axios.get(`http://localhost:8081/qyteti/all`);
         dispatch({
             type: GET_QYTETETS,
             payload: response.data
@@ -51,7 +51,7 @@ export const getAllQytetet=() => async(dispatch) =>{
                                         //nxit aksionin me ndodh
 export const getQyteti = (id) => async(dispatch ) => {
     try{
-        const response = await axios.get(`http://localhost:8081/api/qyteti/${id}`);
+        const response = await axios.get(`http://localhost:8081/qyteti/${id}`);
         dispatch( { 
             type: GET_QYTETI,
             payload: response.data
@@ -66,7 +66,7 @@ export const getQyteti = (id) => async(dispatch ) => {
 };
 export const deleteQyteti =(id) => async(dispatch)=>{
     if(window.confirm("Jeni i sigurt qe doni te fshini kete")){
-        await axios.delete(`http://localhost:8081/api/qyteti/${id}`);
+        await axios.delete(`http://localhost:8081/qyteti/${id}`);
         dispatch({
             type: DELETE_QYTETI,
             payload: id,
@@ -76,7 +76,7 @@ export const deleteQyteti =(id) => async(dispatch)=>{
 };
 export const getQytetiCount = () => async (dispatch) => {
     try {
-        const response = await axios.get("http://localhost:8081/api/qyteti/count");
+        const response = await axios.get("http://localhost:8081/qyteti/count");
         dispatch({
             type: GET_QYTETI_COUNT,
             payload: response.data

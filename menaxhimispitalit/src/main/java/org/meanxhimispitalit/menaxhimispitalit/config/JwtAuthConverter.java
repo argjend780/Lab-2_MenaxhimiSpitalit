@@ -1,4 +1,4 @@
-package org.meanxhimispitalit.menaxhimispitalit.config;
+/*package org.meanxhimispitalit.menaxhimispitalit.config;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -51,4 +51,4 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()))
                 .collect(Collectors.toSet());
     }
-}
+}*/

@@ -5,7 +5,7 @@ import { GET_ERRORS } from "../actions/type";
 export const getMjektets = (qytetiId, spitaliId,repartiId) => async (dispatch) => {
     try {
         const response 
-        = await axios.get(`http://localhost:8081/api/mjeket/all/${qytetiId}/${spitaliId}/${repartiId}`);
+        = await axios.get(`http://localhost:8081/mjeket/all/${qytetiId}/${spitaliId}/${repartiId}`);
         dispatch({
             type: GET_MJEKETS,
             payload: response.data
@@ -21,7 +21,7 @@ export const getMjektets = (qytetiId, spitaliId,repartiId) => async (dispatch) =
 export const creaetMjeket = (qytetiId, spitaliId,repartiId,mjeket) => async (dispatch) => {
     try {
         const response = 
-        await axios.post(`http://localhost:8081/api/mjeket/${qytetiId}/${spitaliId}/${repartiId}`,mjeket);
+        await axios.post(`http://localhost:8081/mjeket/${qytetiId}/${spitaliId}/${repartiId}`,mjeket);
         dispatch({
             type: CREATE_MJEKET,
             payload: response.data
@@ -38,7 +38,7 @@ export const creaetMjeket = (qytetiId, spitaliId,repartiId,mjeket) => async (dis
 export const getMjek = (qytetiId, spitaliId,repartiId,mjektId) => async (dispatch) => {
     try {
         const response =
-         await axios.get(`http://localhost:8081/api/mjeket/o/${qytetiId}/${spitaliId}/${repartiId}/${mjektId}`);
+         await axios.get(`http://localhost:8081/mjeket/o/${qytetiId}/${spitaliId}/${repartiId}/${mjektId}`);
         dispatch({
             type: GET_MJEKET,
             payload: response.data
@@ -54,7 +54,7 @@ export const getMjek = (qytetiId, spitaliId,repartiId,mjektId) => async (dispatc
 export const deletemjkete = ( repartiId,mjektId) => async (dispatch) => {
     try {
         const response 
-        = await axios.delete(`http://localhost:8081/api/mjeket/delete/${repartiId}/${mjektId}`);
+        = await axios.delete(`http://localhost:8081/mjeket/delete/${repartiId}/${mjektId}`);
         console.log('deleteReparti called with:', {  repartiId ,mjektId});
         dispatch({
             type: DELETE_MJEKET,

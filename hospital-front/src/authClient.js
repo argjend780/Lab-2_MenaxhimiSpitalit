@@ -1,4 +1,4 @@
-import Keycloak from 'keycloak-js';
+/*import Keycloak from 'keycloak-js';
 
 const keycloak = new Keycloak({
   url: 'http://localhost:8080/',
@@ -6,4 +6,4 @@ const keycloak = new Keycloak({
   clientId: 'menaxhimiIspitalit',
 });
 
-export default keycloak;
+export default keycloak;*/

@@ -1,4 +1,4 @@
-package org.meanxhimispitalit.menaxhimispitalit.config;
+/*package org.meanxhimispitalit.menaxhimispitalit.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,4 +43,4 @@ public class SecurityConfig {
     public JwtDecoder jwtDecoder() {
         return JwtDecoders.fromIssuerLocation("http://localhost:8080/realms/menaxhimiIspitalit");
     }
-}
+}*/

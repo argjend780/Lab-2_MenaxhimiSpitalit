@@ -8,7 +8,7 @@ import org.meanxhimispitalit.menaxhimispitalit.Entity.Qyteti;
 import org.meanxhimispitalit.menaxhimispitalit.service.QytetiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Collections;
 import java.util.Map;
@@ -31,7 +31,7 @@ public class QytetiController {
         
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<?> createQyteti(@RequestBody Qyteti qyteti) {
      
@@ -51,7 +51,7 @@ public class QytetiController {
             return ResponseEntity.notFound().build();
         }
     }
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteQyteti(@PathVariable ("id") Long id) {
         return qytetiService.deleteQytetiById(id);
@@ -63,7 +63,7 @@ public class QytetiController {
         List<Qyteti> qytetiList = qytetiService.getAllQytetet();
         return ResponseEntity.ok(qytetiList);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/count")
     public Map<String, Long> getCityCount() {
     long count = qytetiService.countQyteti();
