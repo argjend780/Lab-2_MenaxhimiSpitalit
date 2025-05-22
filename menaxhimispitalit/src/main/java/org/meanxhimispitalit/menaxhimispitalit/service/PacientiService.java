@@ -97,6 +97,9 @@ public class PacientiService {
 		public Long countPacientet() {
         	return pacientetrepository.count();
     	}
+		public List<Pacienti> searchPacientet(String keyword) {
+			return pacientetrepository.findByNameContainingIgnoreCaseOrEmailContainingIgnoreCase(keyword, keyword);
+		}
 	}
 
 

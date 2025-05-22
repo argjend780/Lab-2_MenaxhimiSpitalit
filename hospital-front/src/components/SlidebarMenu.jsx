@@ -1,7 +1,7 @@
 // src/components/SidebarMenu.jsx
 import { Sidebar, Menu, MenuItem, SubMenu, sidebarClasses } from 'react-pro-sidebar';
 import { Link } from 'react-router-dom';
-import { Home, Calendar, ShoppingCart, Users, Activity, MapPin } from 'lucide-react';
+import { Home, Calendar, ShoppingCart, Users, Activity, MapPin,Search } from 'lucide-react';
 
 const SidebarMenu = () => {
   return (
@@ -60,6 +60,9 @@ const SidebarMenu = () => {
 
           <MenuItem component={<Link to="/e-commerce" />} icon={<ShoppingCart size={18} />}>
             E-commerce
+          </MenuItem>
+          <MenuItem component={<Link to="/search-pacinet" />} icon={<Search size={18} />}>
+            Kërko Pacient
           </MenuItem>
         </Menu>
       </Sidebar>

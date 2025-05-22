@@ -25,6 +25,7 @@ import { MapPin } from 'lucide-react';
 import { getQytetiCount } from '../actions/QyteteAction';
 import { getSpitaliCount } from '../actions/SpitaliAction';
 import { getPacinetCount } from '../actions/PacinetActions';
+import Footer from './Footer';
 
 const Dashboard = () => {
   const dispatch=useDispatch();
@@ -86,7 +87,9 @@ const Dashboard = () => {
         <LineChartPacientet7Ditet />
       </div>
       </div>
-      </div>
+
+    </div>
+
   );
 };
 
