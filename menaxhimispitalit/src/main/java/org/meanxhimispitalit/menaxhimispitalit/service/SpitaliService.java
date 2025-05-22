@@ -1,11 +1,10 @@
 package org.meanxhimispitalit.menaxhimispitalit.service;
 
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Spitali;
-import org.meanxhimispitalit.menaxhimispitalit.Entity.Qyteti;
 
 import org.meanxhimispitalit.menaxhimispitalit.repository.SpitaliRepository;
 import org.meanxhimispitalit.menaxhimispitalit.repository.QytetiRepository;
-import org.meanxhimispitalit.menaxhimispitalit.service.QytetiService;
+
 
 
 import org.springframework.http.ResponseEntity;

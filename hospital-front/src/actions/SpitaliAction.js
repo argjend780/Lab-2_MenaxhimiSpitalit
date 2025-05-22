@@ -3,7 +3,7 @@ import { GET_SPITALI, GET_SPITALIS, CREATE_SPITALI, DELETE_SPITALI, GET_SPITALI_
 
 export const getSpitaletList = (qyteti_id) => async (dispatch) => {
     try {
-        const response = await axios.get(`http://localhost:8081/api/spitalet/reparti/${qyteti_id}`);
+        const response = await axios.get(`http://localhost:8081/spitalet/reparti/${qyteti_id}`);
         dispatch({
             type: GET_SPITALIS,
             payload: response.data,
@@ -18,7 +18,7 @@ export const getSpitaletList = (qyteti_id) => async (dispatch) => {
 
 export const createEmployee = (qytetiId, spitali) => async (dispatch) => {
     try {
-        const response = await axios.post(`http://localhost:8081/api/spitalet/create/${qytetiId}`, spitali);
+        const response = await axios.post(`http://localhost:8081/spitalet/create/${qytetiId}`, spitali);
         dispatch({
             type: CREATE_SPITALI,
             payload: response.data
@@ -34,7 +34,7 @@ export const createEmployee = (qytetiId, spitali) => async (dispatch) => {
 
 export const getEmployee = (qytetiId, spitaliId) => async (dispatch) => {
     try {
-        const response = await axios.get(`http://localhost:8081/api/spitalet/get/${qytetiId}/${spitaliId}`);
+        const response = await axios.get(`http://localhost:8081/spitalet/get/${qytetiId}/${spitaliId}`);
         dispatch({
             type: GET_SPITALI,
             payload: response.data
@@ -50,7 +50,7 @@ export const getEmployee = (qytetiId, spitaliId) => async (dispatch) => {
 export const deleteEmployee = (qytetiId, spitaliId) => async (dispatch) => {
     try {
         if (window.confirm("A je i sigurt që dëshiron ta fshish?")) {
-            await axios.delete(`http://localhost:8081/api/spitalet/delete/${qytetiId}/${spitaliId}`);
+            await axios.delete(`http://localhost:8081/spitalet/delete/${qytetiId}/${spitaliId}`);
             dispatch({
                 type: DELETE_SPITALI,
                 payload: spitaliId
@@ -66,7 +66,7 @@ export const deleteEmployee = (qytetiId, spitaliId) => async (dispatch) => {
 };
 export const getSpitaliCount = () => async (dispatch) => {
     try {
-        const response = await axios.get("http://localhost:8081/api/spitalet/count");
+        const response = await axios.get("http://localhost:8081/spitalet/count");
         dispatch({
             type: GET_SPITALI_COUNT,
             payload: response.data

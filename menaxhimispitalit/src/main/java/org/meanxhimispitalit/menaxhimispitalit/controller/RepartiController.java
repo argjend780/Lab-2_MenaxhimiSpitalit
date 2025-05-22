@@ -7,6 +7,7 @@ import org.meanxhimispitalit.menaxhimispitalit.service.RepartiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,7 +16,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/repartet")
+@RequestMapping("/repartet")
 @CrossOrigin
 public class RepartiController {
 
@@ -26,6 +27,7 @@ public class RepartiController {
         this.repartiService = repartiService;
     }
 
+    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping(path="/{qytetiId}/{spitaliId}")
 	public ResponseEntity<?> addNewTask(@PathVariable("qytetiId") Long departmentId, 
 			@PathVariable ("spitaliId") Long employeeId,
@@ -40,7 +42,7 @@ public class RepartiController {
         List<Reparti> repartetList = repartiService.getTaskList(departamentiId, employeeId);
         return new ResponseEntity<>(repartetList, HttpStatus.OK);
     }
-
+   // @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{qytetiId}/{spitaliId}/{repartiId}")
     public ResponseEntity<?> deleteReparti(@PathVariable ("qytetiId") Long departmentId, 
     		@PathVariable ("spitaliId") Long employeeId,

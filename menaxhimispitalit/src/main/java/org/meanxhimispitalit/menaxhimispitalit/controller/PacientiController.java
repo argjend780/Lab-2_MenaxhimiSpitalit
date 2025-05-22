@@ -1,15 +1,12 @@
 package org.meanxhimispitalit.menaxhimispitalit.controller;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Pacienti;
 import org.meanxhimispitalit.menaxhimispitalit.service.PacientiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/pacient")
+@RequestMapping("/pacient")
 @CrossOrigin
 public class PacientiController {
 	
@@ -33,7 +30,7 @@ public class PacientiController {
            this.pacientService = pacientService;
           
        }
-	
+	    //@PreAuthorize("hasRole('ADMIN')")
 	    @PostMapping(path="/add/{qytetiId}/{SpitaliID}/{repartiID}")
 	    public ResponseEntity<?> createPacient(@PathVariable ("qytetiId") Long qytetiId,@PathVariable ("SpitaliID") Long SpitaliID,
 	    		@PathVariable ("repartiID") Long repartiID,
@@ -53,14 +50,15 @@ public class PacientiController {
 	    public List<Pacienti>getPacientList(@PathVariable ("qytetiId") Long qytetiId,@PathVariable ("spitaliId") Long spitaliId,@PathVariable ("repartiId") Long repartiId){
 	    	return pacientService.getPacinetList(qytetiId,spitaliId,repartiId);
 	    }
-		
+	   // @PreAuthorize("hasRole('ADMIN')")
 	    @DeleteMapping(path = "/delete/{departmentId}/{id}")
 	    public ResponseEntity<?>deletePacientById(@PathVariable ("departmentId") Long departmentId, @PathVariable ("id") Long id){
 			
 	    	return pacientService.deletePacinetById(departmentId,id);
 	    	
 	    }
-		 @GetMapping("/count")
+	    //@PreAuthorize("hasRole('ADMIN')")
+		@GetMapping("/count")
 		public Map<String, Long> getPacinetCount() {
 		long count = pacientService.countPacientet();
 		return Collections.singletonMap("count", count);

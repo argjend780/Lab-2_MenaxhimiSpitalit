@@ -1,14 +1,10 @@
 package org.meanxhimispitalit.menaxhimispitalit.controller;
 
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Spitali;
-import org.meanxhimispitalit.menaxhimispitalit.Entity.Reparti;
-import org.meanxhimispitalit.menaxhimispitalit.Entity.Qyteti;
-
 import org.meanxhimispitalit.menaxhimispitalit.service.SpitaliService;
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -16,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/spitalet")
+@RequestMapping("/spitalet")
 @CrossOrigin
 public class SpitaliController {
 
@@ -28,6 +24,7 @@ public class SpitaliController {
         this.spitaliService = spitaliService;
     }
 
+   // @PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/create/{departmentId}")
     public ResponseEntity<?> createOrUpdateSpitali(@RequestBody Spitali spitali, 
 	                                                @PathVariable("departmentId") Long departmentId) {
@@ -53,7 +50,8 @@ public class SpitaliController {
         List<Spitali> spitaletList = spitaliService.getSpitaliList(repartiId);
         return new ResponseEntity<>(spitaletList, HttpStatus.OK);
     }
-   
+
+   // @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{repartiId}/{id}")
     public ResponseEntity<?> deleteSpitaliById(@PathVariable ("repartiId") Long repartiId, 
     		@PathVariable ("id") Long id) {
@@ -65,6 +63,7 @@ public class SpitaliController {
         Spitali spitalet = spitaliService.getSpitali(repartiId, mjeketID);
         return new ResponseEntity<>(spitalet, HttpStatus.OK);
     }
+ //   @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/count")
     public Map<String, Long> getCityCount() {
     long count = spitaliService.countSpitalet();

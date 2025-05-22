@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Pacienti;
 import org.meanxhimispitalit.menaxhimispitalit.Entity.Reparti;
 import org.meanxhimispitalit.menaxhimispitalit.repository.PacientiRepository;
-import org.meanxhimispitalit.menaxhimispitalit.repository.RepartiRepository;
 
 
 

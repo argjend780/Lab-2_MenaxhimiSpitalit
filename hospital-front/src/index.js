@@ -1,3 +1,19 @@
+/*import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import KeycloakProviderWrapper from './KeycloakProviderWrapper';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    
+  </React.StrictMode>
+);
+
+reportWebVitals();
+// <KeycloakProviderWrapper />*/
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
