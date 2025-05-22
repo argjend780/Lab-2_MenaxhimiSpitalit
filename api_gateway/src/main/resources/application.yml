@@ -33,9 +33,9 @@ spring:
           max-life-time: 60s
 
       default-filters:
-        - SaveSession
         - name: RequestRateLimiter
           args:
+            key-resolver: "#{@keyResolver}"
             redis-rate-limiter:
               replenishRate: 10
               burstCapacity: 20
